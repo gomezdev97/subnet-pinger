@@ -39,6 +39,9 @@ subnet = ipaddress.ip_network(net_addr)
 all_hosts = list(subnet.hosts())
 usable_hosts = len(all_hosts)
 
+
+print("\n\n"+str(usable_hosts)+" hosts will be scanned.")
+
 # For each IP address in the subnet, 
 # run the ping command with subprocess.run interface
 
@@ -65,7 +68,7 @@ for i in range(len(all_hosts)):
         pass
     else:
         previous_percentage = percent_done
-        print(str(percent_done)+"%")
+        print(str(percent_done)+"%"+"\t\t"+str(iteration)+"/"+str(usable_hosts)+" hosts scanned")
 
     # Increase the number of iteration
     iteration = iteration + 1 
